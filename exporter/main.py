@@ -18,16 +18,22 @@ class NovaCollector(object):
     def __init__(self, nova_output, cluster_name):
         self.nova_output = nova_output
         self.cluster_name = cluster_name
-        self.gauges = { 'helm_outdated': GaugeMetricFamily('helm_outdated', 
-                                        "Helm chart is outdated or not", 
-                                        labels=['release', 'chart_name', 'namespace', 'installed_version', 'latest_version']),
-                        'helm_deprecated': GaugeMetricFamily('helm_deprecated', 
-                                        "Helm chart is deprecated or not", 
-                                        labels=['release', 'chart_name', 'namespace', 'installed_version', 'latest_version'])
-        }
-
+        self.gauges = {}
     def collect(self):
         apps = json.loads(open(self.nova_output, 'r').read())
+        # Recreate gauges to prevent multiple occurences of metrics
+        self.gauges = {
+            'helm_outdated': GaugeMetricFamily(
+                'helm_outdated', 
+                "Helm chart is outdated or not", 
+                labels=['release', 'chart_name', 'namespace', 'installed_version', 'latest_version']
+            ),
+            'helm_deprecated': GaugeMetricFamily(
+                'helm_deprecated', 
+                "Helm chart is deprecated or not", 
+                labels=['release', 'chart_name', 'namespace', 'installed_version', 'latest_version']
+            )
+        }
         for app in apps['helm']:
             label_values = [app['release'], app['chartName'], app['namespace'], app['Installed']['version'], app['Latest']['version']]
             deprecated = int(app['deprecated'])
