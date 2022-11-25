@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nova-find-helm-info
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: nova-find-helm-info
+            image: path/to/image/nova-kubectl:0.0.13
+            # imagePullPolicy: Always
+            volumeMounts:
+            - name: kubeconfig
+              mountPath: "/root/.kube"
+              readOnly: true
+          volumes:
+          - name: kubeconfig
+            secret: 
+              secretName: kubeconfig
