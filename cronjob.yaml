@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: nova-find-helm-info
 spec:
-  schedule: "* * * * *"
+  schedule: "0 0 * * 1"
   jobTemplate:
     spec:
       template:
@@ -11,8 +11,8 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: nova-find-helm-info
-            image: path/to/image/nova-kubectl:0.0.13
-            # imagePullPolicy: Always
+            image: nova-kubectl:0.0.1
+            imagePullPolicy: Always
             volumeMounts:
             - name: kubeconfig
               mountPath: "/root/.kube"
