@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm-deprecated-exporter
+  namespace: default
+  labels:
+    app: helm-deprecated-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helm-deprecated-exporter
+  template:
+    metadata:
+      labels:
+        app: helm-deprecated-exporter
+    spec:
+      containers:
+      - name: helm-deprecated-exporter
+        image: helm-deprecated-exporter:0.0.1
+        imagePullPolicy: Always
+        env:
+        - name: NOVA_OUTPUT_PATH
+          value: "/config/nova-output.json"
+        volumeMounts:
+        - mountPath: /config
+          name: data-volume
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+      volumes:
+        - name: data-volume
+          configMap:
+            name: nova-output
