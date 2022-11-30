@@ -39,15 +39,15 @@ Make sure that you have [kubectl](https://kubernetes.io/docs/tasks/tools/) insta
 ## Deploy the exporter
 
 ```
-kubectl apply -f configmap.yaml
-kubectl apply -f deploymentyaml
+kubectl apply -f manifests/configmap.yaml
+kubectl apply -f manifests/deployment.yaml
 ```
 
 ## Deploy the cronjob
 
 ```
-kubectl apply -f secret.yaml
-kubectl apply -f cronjob.yaml
+kubectl apply -f manifests/secret.yaml
+kubectl apply -f manifests/cronjob.yaml
 ```
 
 # Next features

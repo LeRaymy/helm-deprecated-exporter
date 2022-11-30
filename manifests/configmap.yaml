@@ -4,5 +4,4 @@ metadata:
   name: nova-output
 data:
   nova-output.json: |
-    {"helm":
-    [],"include_all":true}
+    {"helm":[],"include_all":true}
