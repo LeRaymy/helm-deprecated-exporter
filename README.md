@@ -51,7 +51,5 @@ kubectl apply -f manifests/cronjob.yaml
 ```
 
 # Next features
-
-[ ] Implement a Helm chart for the deployment of the exporter
-[ ] Create rules for the [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/)
-[ ] Allow to automatically update the Helm chart
+ - Implement a Helm chart for the deployment of the exporter
+ - Allow to automatically update the Helm chart
