@@ -16,10 +16,11 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME_EXPORTER: ${{ github.repository }}
+  IMAGE_NAME_CONF_UPDATE: update-conf
 
 jobs:
-  build-and-push-image:
+  build-and-push-exporter-image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -40,7 +41,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_EXPORTER }}
           tags: |
             type=semver,pattern={{raw}}
 
@@ -53,6 +54,31 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+  build-and-push-update-conf-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_CONF_UPDATE }}
+          tags: |
+            type=semver,pattern={{raw}}
+      
       - name: Build and push update-conf Docker image
         uses: docker/build-push-action@v3
         with:
