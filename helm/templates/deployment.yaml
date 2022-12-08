@@ -54,6 +54,10 @@ spec:
               port: metrics
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: data-volume
+          configMap:
+            name: {{ .Release.Name }}-nova-output
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
