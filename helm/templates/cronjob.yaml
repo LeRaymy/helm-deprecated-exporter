@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "helm.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "helm.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cronjob.schedule }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: {{ .Values.cronjob.restartPolicy }}
+          containers:
+          - name: nova-find-helm-info
+            image: "{{ .Values.cronjob.image.repository }}:{{ .Values.cronjob.image.tag | default .Chart.AppVersion }}"
+            imagePullPolicy: {{ .Values.cronjob.image.pullPolicy }}
+            volumeMounts:
+            - name: kubeconfig
+              mountPath: "/root/.kube"
+              readOnly: true
+          volumes:
+          - name: kubeconfig
+            secret: 
+              secretName: kubeconfig
