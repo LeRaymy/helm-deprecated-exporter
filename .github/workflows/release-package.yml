@@ -17,7 +17,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME_EXPORTER: ${{ github.repository }}
-  IMAGE_NAME_CONF_UPDATE: update-conf
+  IMAGE_NAME_CONF_UPDATE: ${{ github.repository }}-conf
 
 jobs:
   build-and-push-exporter-image:
