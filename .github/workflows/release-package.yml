@@ -47,15 +47,17 @@ jobs:
       - name: Build and push exporter Docker image
         uses: docker/build-push-action@v3
         with:
-          context: ./Dockerfile.exporter
+          context: .
           push: true
+          file: Dockerfile.exporter
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Build and push update-conf Docker image
         uses: docker/build-push-action@v3
         with:
-          context: ./Dockerfile.update-conf
+          context: .
+          file: Dockerfile.update-conf
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
