@@ -53,3 +53,6 @@ kubectl apply -f manifests/cronjob.yaml
 # Next features
  - Implement a Helm chart for the deployment of the exporter
  - Allow to automatically update the Helm chart
+
+ # Release
+ v0.0.1
