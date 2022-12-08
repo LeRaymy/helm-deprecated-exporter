@@ -2,8 +2,9 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: nova-find-helm-info
+  namespace: helm-deprecated
 spec:
-  schedule: "0 0 * * 1"
+  schedule: "12 12 * * *"
   jobTemplate:
     spec:
       template:
@@ -11,7 +12,7 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: nova-find-helm-info
-            image: nova-kubectl:0.0.1
+            image: ghcr.io/leraymy/helm-deprecated-exporter-conf:v0.0.1
             imagePullPolicy: Always
             volumeMounts:
             - name: kubeconfig

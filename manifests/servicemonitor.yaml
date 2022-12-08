@@ -12,7 +12,7 @@ spec:
   jobLabel: helm-deprecated-exporter
   namespaceSelector:
     matchNames:
-      - default
+      - helm-deprecated
   selector:
     matchLabels:
       app: helm-deprecated-exporter

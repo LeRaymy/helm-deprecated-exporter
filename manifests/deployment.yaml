@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: helm-deprecated-exporter
-  namespace: default
+  namespace: helm-deprecated
   labels:
     app: helm-deprecated-exporter
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: helm-deprecated-exporter
-        image: helm-deprecated-exporter:0.0.1
+        image: ghcr.io/leraymy/helm-deprecated-exporter:v0.0.1
         imagePullPolicy: Always
         env:
         - name: NOVA_OUTPUT_PATH

@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nova-output
+  namespace: helm-deprecated
 data:
   nova-output.json: |
     {"helm":[],"include_all":true}
