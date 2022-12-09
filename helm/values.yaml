@@ -80,3 +80,23 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+metrics:
+  ## Create prometheus serviceMonitor to scrape harbor metrics.
+  ## This requires the monitoring.coreos.com/v1 CRD. Please see
+  ## https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md
+  ##
+  serviceMonitor:
+    enabled: true
+    additionalLabels: {}
+    # Scrape interval. If not set, the Prometheus default scrape interval is used.
+    interval: ""
+    scrapeTimeout: 30s
+    # Metric relabel configs to apply to samples before ingestion.
+    metricRelabelings:
+      []
+    relabelings:
+      []
+    # Namespace where we want tot deploy the ServiceMonitor
+    namespace: "monitoring-system"
+ 
