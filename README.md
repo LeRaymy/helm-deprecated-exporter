@@ -22,32 +22,22 @@ This gauge lets you know if the installed version of your helm chart is deprecat
 helm_deprecated{chart_name="kube-prometheus-stack",installed_version="42.0.0",latest_version="42.1.0",namespace="monitoring-system",release="prometheus"} 0.0
 ```
 
-# Installation
+# Deploy with helm
 
-Make sure that you have [Docker](https://docs.docker.com/get-docker/) installed.  
+Make sure that you have [helm](https://helm.sh/docs/intro/install/) installed.
 
 ```
 git clone https://github.com/LeRaymy/helm-deprecated-exporter.git
 cd helm-deprecated-exporter
-docker build -t helm-deprecated-exporter:0.0.1 -f Dockerfile.exporter .
-docker build -t nova-find-helm-info -f Dockerfile.exporter .
 ```
 
-Make sure that you have [kubectl](https://kubernetes.io/docs/tasks/tools/) installed, and an access to a Kubernetes cluster.  
-
-
-## Deploy the exporter
+Modify the `values.yaml` and run
 
 ```
-kubectl apply -f manifests/configmap.yaml
-kubectl apply -f manifests/deployment.yaml
+helm upgrade --install --create-namespace helm-deprecated ./helm -n helm-deprecated -f helm/values.yaml
 ```
 
-## Deploy the cronjob
-
-```
-kubectl apply -f manifests/secret.yaml
-kubectl apply -f manifests/cronjob.yaml
+## Deploy wit Helm
 ```
 
 # Next features
