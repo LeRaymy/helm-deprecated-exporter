@@ -37,6 +37,8 @@ securityContext: {}
   # runAsUser: 1000
 
 cronjob:
+  # Whether to launch a job at deployment, to populate the configmap
+  trigger: true
   image:
     repository: ghcr.io/leraymy/helm-deprecated-exporter-conf
     pullPolicy: IfNotPresent
@@ -100,5 +102,3 @@ prometheusRule:
   # Namespace where we want to deploy the PrometheusRule
   namespace: "monitoring-system"
   enabled: true
-
- 
