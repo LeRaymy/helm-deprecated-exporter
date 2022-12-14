@@ -108,7 +108,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p tmp/packages
-          helm package --destination tmp/packages/ helm/
+          helm package --destination tmp/packages/ helm-deprecated-exporter/
           cp helm/Chart.yaml tmp/
 
       - name: tag-upload-artifacts
