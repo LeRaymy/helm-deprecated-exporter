@@ -4,6 +4,47 @@ This project's goal is to provide a simple [Prometheus](https://prometheus.io/) 
 
 Once a week - or according to the schedule of your Kubernetes `cronjob` -, a Kubernetes Job launches a scan with [nova](https://github.com/FairwindsOps/nova), then, it updates a ConfigMap on which upon the Prometheus exporter is based.
 
+# Requirements
+- A kubernetes cluster
+- [Helm](https://helm.sh/) v3 or higher
+- A [prometheus](https://prometheus.io/docs/prometheus/latest/installation/) cluster
+
+# Helm chart repository
+
+1. Add a new Helm repository
+
+```
+helm repo add helm-deprecated-exporter https://leraymy.github.io/helm-deprecated-exporter/
+```
+
+2. Refresh the repository information
+
+```
+helm repo update
+```
+
+3. Search for all available charts in this repository
+
+```
+helm search repo helm-deprecated-exporter --versions
+```
+Or list the latest development/unstable versions
+```
+helm search repo helm-deprecated-exporter --versions
+```
+
+# Configuration
+The configuration is done via `values.yaml` and for complete details, you should refer to the [repository](https://github.com/LeRaymy/helm-deprecated-exporter/blob/gh-pages/helm/values.yaml).
+
+# Installation
+To install the helm-deprecated-exporter chart:
+```
+helm upgrade --install --namespace helm-deprecated --create-namespace helm-deprecated helm-deprecated-exporter/helm-deprecated-exporter -f values.yaml
+```
+To uninstall the chart:
+```
+helm uninstall --namespace helm-deprecated helm-deprecated
+```
 # Metrics exposed by the exporter  
 
 ## Helm outdated
@@ -21,25 +62,3 @@ This gauge lets you know if the installed version of your helm chart is deprecat
 ```
 helm_deprecated{chart_name="kube-prometheus-stack",installed_version="42.0.0",latest_version="42.1.0",namespace="monitoring-system",release="prometheus"} 0.0
 ```
-
-# Deploy with helm
-
-Make sure that you have [helm](https://helm.sh/docs/intro/install/) installed.
-
-```
-git clone https://github.com/LeRaymy/helm-deprecated-exporter.git
-cd helm-deprecated-exporter
-```
-
-Modify the `values.yaml` and run
-
-```
-helm upgrade --install --create-namespace helm-deprecated ./helm -n helm-deprecated -f helm/values.yaml
-```
-
-# Next features
- - Allow to automatically update the Helm chart
- - Helm chart on github
-
- # Release
- v0.0.1
