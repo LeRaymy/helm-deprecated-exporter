@@ -37,12 +37,9 @@ Modify the `values.yaml` and run
 helm upgrade --install --create-namespace helm-deprecated ./helm -n helm-deprecated -f helm/values.yaml
 ```
 
-## Deploy wit Helm
-```
-
 # Next features
- - Implement a Helm chart for the deployment of the exporter
  - Allow to automatically update the Helm chart
+ - Helm chart on github
 
  # Release
  v0.0.1
