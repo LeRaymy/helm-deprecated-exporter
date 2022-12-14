@@ -4,6 +4,9 @@ This project's goal is to provide a simple [Prometheus](https://prometheus.io/) 
 
 Once a week - or according to the schedule of your Kubernetes `cronjob` -, a Kubernetes Job launches a scan with [nova](https://github.com/FairwindsOps/nova), then, it updates a ConfigMap on which upon the Prometheus exporter is based.
 
+# Documentation
+Documentation is available [here](https://leraymy.github.io/helm-deprecated-exporter/).
+
 # Requirements
 - A kubernetes cluster
 - [Helm](https://helm.sh/) v3 or higher
