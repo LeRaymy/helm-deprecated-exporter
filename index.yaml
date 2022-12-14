@@ -3,7 +3,7 @@ entries:
   helm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-12-14T13:03:07.598337801Z"
+    created: "2022-12-14T13:43:58.427792737Z"
     description: A Helm chart for Kubernetes
     digest: 51044b71f117625fa9775f5b0dd26c278428316767a5fb8900418b750b0c01fd
     name: helm
@@ -11,4 +11,15 @@ entries:
     urls:
     - https://LeRaymy.github.io/helm-deprecated-exporter/packages/helm-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-14T13:03:07.597494284Z"
+  helm-deprecated-exporter:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-12-14T13:43:58.428292442Z"
+    description: A Helm chart for Kubernetes
+    digest: 3bbf2d0f4dd0f358edf906cb2c995950985bdd38b4bee0b29136e815a00e7d0d
+    name: helm-deprecated-exporter
+    type: application
+    urls:
+    - https://LeRaymy.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-12-14T13:43:58.427049528Z"
