@@ -109,7 +109,7 @@ jobs:
         run: |
           mkdir -p tmp/packages
           helm package --destination tmp/packages/ helm-deprecated-exporter/
-          cp helm/Chart.yaml tmp/
+          cp helm-deprecated-exporter/Chart.yaml tmp/
 
       - name: tag-upload-artifacts
         uses: actions/upload-artifact@v3
