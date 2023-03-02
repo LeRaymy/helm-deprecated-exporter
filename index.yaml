@@ -3,23 +3,33 @@ entries:
   helm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-12-14T13:43:58.427792737Z"
+    created: "2023-03-02T09:32:18.139538583Z"
     description: A Helm chart for Kubernetes
     digest: 51044b71f117625fa9775f5b0dd26c278428316767a5fb8900418b750b0c01fd
     name: helm
     type: application
     urls:
-    - https://LeRaymy.github.io/helm-deprecated-exporter/packages/helm-0.0.1.tgz
+    - https://IDerr.github.io/helm-deprecated-exporter/packages/helm-0.0.1.tgz
     version: 0.0.1
   helm-deprecated-exporter:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-12-14T13:43:58.428292442Z"
+    created: "2023-03-02T09:32:18.140786496Z"
+    description: A Helm chart for Kubernetes
+    digest: 53b04a152eac12d780bbac3d3f12032d5bd0a34cd8bce4913720a5a68ea6a510
+    name: helm-deprecated-exporter
+    type: application
+    urls:
+    - https://IDerr.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-03-02T09:32:18.14018149Z"
     description: A Helm chart for Kubernetes
     digest: 3bbf2d0f4dd0f358edf906cb2c995950985bdd38b4bee0b29136e815a00e7d0d
     name: helm-deprecated-exporter
     type: application
     urls:
-    - https://LeRaymy.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.0.1.tgz
+    - https://IDerr.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-14T13:43:58.427049528Z"
+generated: "2023-03-02T09:32:18.138241269Z"
