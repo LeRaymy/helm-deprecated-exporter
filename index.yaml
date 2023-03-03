@@ -3,33 +3,33 @@ entries:
   helm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-03-02T09:32:18.139538583Z"
+    created: "2023-03-03T13:35:56.864365489Z"
     description: A Helm chart for Kubernetes
     digest: 51044b71f117625fa9775f5b0dd26c278428316767a5fb8900418b750b0c01fd
     name: helm
     type: application
     urls:
-    - https://IDerr.github.io/helm-deprecated-exporter/packages/helm-0.0.1.tgz
+    - https://LeRaymy.github.io/helm-deprecated-exporter/packages/helm-0.0.1.tgz
     version: 0.0.1
   helm-deprecated-exporter:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-03-02T09:32:18.140786496Z"
+    created: "2023-03-03T13:35:56.865540005Z"
     description: A Helm chart for Kubernetes
-    digest: 53b04a152eac12d780bbac3d3f12032d5bd0a34cd8bce4913720a5a68ea6a510
+    digest: 3e431832a32852a8b8c4ab5c0ef790b89e8dc4e5cc4f1cf8974e77f50fe031f6
     name: helm-deprecated-exporter
     type: application
     urls:
-    - https://IDerr.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.2.0.tgz
+    - https://LeRaymy.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-03-02T09:32:18.14018149Z"
+    created: "2023-03-03T13:35:56.864955197Z"
     description: A Helm chart for Kubernetes
     digest: 3bbf2d0f4dd0f358edf906cb2c995950985bdd38b4bee0b29136e815a00e7d0d
     name: helm-deprecated-exporter
     type: application
     urls:
-    - https://IDerr.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.0.1.tgz
+    - https://LeRaymy.github.io/helm-deprecated-exporter/packages/helm-deprecated-exporter-0.0.1.tgz
     version: 0.0.1
-generated: "2023-03-02T09:32:18.138241269Z"
+generated: "2023-03-03T13:35:56.863530778Z"
